@@ -82,11 +82,14 @@ Pinteresting::Application.configure do
   # Note to set this to your actual host
   config.action_mailer.default_url_options = { :host => 'erickuhn-pintersting.herokuapp.com' }
 
+  # makes paperclip find imagemagick
+  Paperclip.options[:command_path] = 'C:/Program Files/ImageMagick-6.8.9-Q16'
+
   # Sets paperclick to upload images to amazon s3
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => ENV['AWS_BUCKET'],
+      :bucket => ENV['erickuhnpinteresting'],
       :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
